@@ -262,7 +262,7 @@ function generateWhatsAppMessage(data) {
     const checkOut = new Date(data.checkOut);
     const nights = Math.ceil((checkOut - checkIn) / (1000 * 60 * 60 * 24));
     
-    let message = `🏨 *ROYAL PALACE HOTEL - BOOKING REQUEST*\n\n`;
+    let message = `🏨 *Crystal Peak Camp - BOOKING REQUEST*\n\n`;
     message += `👤 *Guest Details:*\n`;
     message += `Name: ${data.fullName}\n`;
     message += `Phone: ${data.phone}\n\n`;
@@ -327,7 +327,7 @@ function sendToWhatsApp(message) {
 
 // WhatsApp float button functionality
 function openWhatsApp() {
-    const message = encodeURIComponent('Hello! I would like to inquire about booking a room at Royal Palace Hotel. Could you please provide more information?');
+    const message = encodeURIComponent('Hello! I would like to inquire about booking a room at Crystal Peak Camp. Could you please provide more information?');
     const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER.replace(/[\s\-\+]/g, '')}?text=${message}`;
     window.open(whatsappURL, '_blank');
 }
