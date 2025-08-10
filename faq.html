@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Crystal Peak</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #f1f3f4 100%);
+            color: #2c3e50;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #d4af37;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-link {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #d4af37;
+        }
+
+        .nav-link.active {
+            color: #d4af37;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #d4af37;
+        }
+
+        /* Back Button */
+        .back-button {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            z-index: 999;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #d4af37;
+            border-radius: 50px;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-button:hover {
+            background: #d4af37;
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        .faq-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 140px 20px 80px 20px;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .faq-header::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, #c9a876, #d4af37, #c9a876);
+            border-radius: 2px;
+        }
+
+        .faq-title {
+            font-size: 3.8rem;
+            font-weight: 300;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #2c3e50, #34495e, #2c3e50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .faq-subtitle {
+            font-size: 1.3rem;
+            color: #7f8c8d;
+            font-weight: 300;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .faq-category {
+            background: #ffffff;
+            border: 2px solid #ecf0f1;
+            border-radius: 25px;
+            padding: 45px 35px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.05), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .faq-category:hover::before {
+            left: 100%;
+        }
+
+        .faq-category:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+            border-color: #d4af37;
+        }
+
+        .category-title {
+            font-size: 1.6rem;
+            color: #d4af37;
+            margin-bottom: 35px;
+            text-align: center;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .category-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+        }
+
+        .faq-item {
+            margin-bottom: 25px;
+            border-bottom: 1px solid #ecf0f1;
+            padding-bottom: 25px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-question {
+            font-size: 1.15rem;
+            color: #2c3e50;
+            cursor: pointer;
+            padding: 20px 0;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .faq-question:hover {
+            color: #d4af37;
+            padding-left: 10px;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: #d4af37;
+            transition: all 0.4s ease;
+            min-width: 30px;
+            text-align: center;
+            margin-left: 15px;
+        }
+
+        .faq-question.active::after {
+            transform: rotate(45deg);
+            color: #c9a876;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            color: #7f8c8d;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .faq-answer.active {
+            max-height: 250px;
+            padding: 20px 0 10px 0;
+        }
+
+        .contact-cta {
+            text-align: center;
+            margin-top: 80px;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            border-radius: 30px;
+            border: 3px solid #ecf0f1;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-cta::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #d4af37, #f1c40f, #d4af37);
+            border-radius: 30px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-cta:hover::before {
+            opacity: 1;
+        }
+
+        .cta-title {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .cta-text {
+            color: #7f8c8d;
+            margin-bottom: 35px;
+            font-size: 1.2rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #d4af37, #f1c40f);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            left: 0;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+            color: #2c3e50;
+        }
+
+        .decorative-element {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 2px solid rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            top: -50px;
+            right: -50px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* You might want to add a mobile menu here */
+            }
+
+            .back-button {
+                top: 80px;
+                left: 10px;
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+
+            .faq-title {
+                font-size: 2.8rem;
+                letter-spacing: 1px;
+            }
+            
+            .faq-container {
+                padding: 120px 15px 40px 15px;
+            }
+            
+            .faq-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .faq-category {
+                padding: 30px 25px;
+            }
+
+            .category-title {
+                font-size: 1.4rem;
+                letter-spacing: 1px;
+            }
+
+            .contact-cta {
+                padding: 40px 25px;
+                margin-top: 50px;
+            }
+
+            .cta-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Crystal Peak</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                
+                
+
+                
+                
+                
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Back Button -->
+    <a href="javascript:history.back()" class="back-button">← Back</a>
+
+    <div class="faq-container">
+        <div class="faq-header">
+            <h1 class="faq-title">Frequently Asked Questions</h1>
+            <p class="faq-subtitle">Everything you need to know for your exceptional stay</p>
+        </div>
+
+        <div class="faq-grid">
+            <!-- Reservations & Booking -->
+            <div class="faq-category">
+                <div class="decorative-element"></div>
+                <h3 class="category-title">About Chopta</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleAnswer(this)">
+                        How can I make a reservation?
+                    </div>
+                    <div class="faq-answer">
+                        You can make a reservation through our elegant website, mobile app, or by calling our dedicated concierge team. We also provide personalized booking assistance for special occasions and exclusive group reservations.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleAnswer(this)">
+                        What is your cancellation policy?
+                    </div>
+                    <div class="faq-answer">
+                        Cancellations made 48 hours before arrival receive full refunds. Premium suites and exclusive packages require 72-hour notice. Our flexible policies ensure peace of mind for our valued guests.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleAnswer(this)">
+                        Can I modify my booking details?
+                    </div>
+                    <div class="faq-answer">
+                        Absolutely. Modifications are welcomed subject to availability and any applicable rate adjustments. Our guest services team will gladly assist with all reservation changes.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hotel Services -->
+            <div class="faq-category">
+                <div class="decorative-element"></div>
+                <h3 class="category-title">Hotel Services</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleAnswer(this)">
+                        What premium amenities are included?
+                    </div>
+                    <div class="faq-answer">
+                        Every room features complimentary high-speed WiFi, 24/7 room service, Egyptian cotton linens, luxury spa amenities, and full access to our wellness center, infinity pool, and personal concierge services.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleAnswer(this)">
+                        Do you provide airport transfers?
+                    </div>
+                    <div class="faq-answer">
+                        Yes, we offer premium chauffeur services with advance reservations. Suite guests enjoy complimentary luxury transfers, while all guests can access our exclusive transport service at competitive rates.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleAnswer(this)">
+                        Is valet parking available?
+                    </div>
+                    <div class="faq-answer">
+                        Complimentary valet service is provided for all guests. We also offer secure self-parking facilities and dedicated electric vehicle charging stations for your convenience.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dining & Events -->
+            <div class="faq-category">
+                <div class="decorative-element"></div>
+                <h3 class="category-title">Nearby Places</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleAnswer(this)">
+                        What dining experiences do you offer?
+                    </div>
+                    <div class="faq-answer">
+                        We feature three Michelin-starred restaurants, an artisanal cocktail lounge, and 24-hour gourmet room service. Private dining experiences and exclusive chef's table arrangements are available by appointment.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleAnswer(this)">
+                        Can you accommodate special dietary needs?
+                    </div>
+                    <div class="faq-answer">
+                        Our award-winning culinary team expertly accommodates all dietary preferences including vegan, gluten-free, kosher, and bespoke nutritional requirements with advance notice.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleAnswer(this)">
+                        Do you host private celebrations?
+                    </div>
+                    <div class="faq-answer">
+                        We specialize in creating unforgettable events in our sophisticated venues. From intimate weddings to corporate galas, our events team provides comprehensive planning and world-class catering.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Policies & Information -->
+            <div class="faq-category">
+                <div class="decorative-element"></div>
+                <h3 class="category-title">Policies & Information</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleAnswer(this)">
+                        What are your arrival and departure times?
+                    </div>
+                    <div class="faq-answer">
+                        Standard check-in begins at 3:00 PM and check-out is at 12:00 PM. Early arrivals and extended departures are accommodated based on availability, with possible additional charges.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleAnswer(this)">
+                        Do you welcome pets?
+                    </div>
+                    <div class="faq-answer">
+                        We warmly welcome well-behaved companions with advance arrangements. Our pet concierge service includes luxury bedding, gourmet treats, and professional walking services for your cherished pets.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleAnswer(this)">
+                        What health and safety protocols are maintained?
+                    </div>
+                    <div class="faq-answer">
+                        We maintain exceptional safety standards with 24/7 security, contactless service options, rigorous sanitization protocols, and comprehensive health measures ensuring complete guest confidence and wellbeing.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-cta">
+            <h3 class="cta-title">Need Personal Assistance?</h3>
+            <p class="cta-text">Our distinguished concierge team is available around the clock to provide personalized support for all your needs</p>
+            <a href="https://wa.me/+919411385974?text=Hello,%20I%20have%20a%20question%20about%20your%20camp%20services." class="cta-button" target="_blank">Contact Concierge</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleAnswer(element) {
+            const answer = element.nextElementSibling;
+            const question = element;
+            
+            // Close all other answers in the same category
+            const category = element.closest('.faq-category');
+            const allQuestions = category.querySelectorAll('.faq-question');
+            const allAnswers = category.querySelectorAll('.faq-answer');
+            
+            allQuestions.forEach(q => {
+                if (q !== question) {
+                    q.classList.remove('active');
+                }
+            });
+            
+            allAnswers.forEach(a => {
+                if (a !== answer) {
+                    a.classList.remove('active');
+                }
+            });
+            
+            // Toggle current answer
+            question.classList.toggle('active');
+            answer.classList.toggle('active');
+        }
+
+        // Add elegant entrance animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const categories = document.querySelectorAll('.faq-category');
+            categories.forEach((category, index) => {
+                category.style.opacity = '0';
+                category.style.transform = 'translateY(40px)';
+                
+                setTimeout(() => {
+                    category.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                    category.style.opacity = '1';
+                    category.style.transform = 'translateY(0)';
+                }, index * 150);
+            });
+
+            // Add subtle scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.transform = 'translateY(0)';
+                        entry.target.style.opacity = '1';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.faq-category, .contact-cta').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
