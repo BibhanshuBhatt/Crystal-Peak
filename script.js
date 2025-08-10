@@ -43,7 +43,7 @@ function initializeTestimonials() {
     if (testimonials.length === 0) return;
     
     // Auto-rotate testimonials every 5 seconds
-    setInterval(nextTestimonial, 2500);
+    setInterval(nextTestimonial, 2000);
 }
 
 function nextTestimonial() {

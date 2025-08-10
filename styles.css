@@ -48,7 +48,7 @@ body {
     backdrop-filter: blur(10px);
     z-index: 1000;
     transition: all 0.3s ease;
-    border-bottom: 1px solid rgb(182, 27, 27);
+    border-bottom: 1px solid rgb(189, 165, 69);
     border-radius: 7px;
 }
 
