@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crystal Peak Camp - Luxury Experience Awaits</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float" onclick="openWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Crystal Peak Camp</h2>
+                <span>Deluxe Tent Stay</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#rooms" class="nav-link">Rooms</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#location" class="nav-link">Location</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-slider">
+            <div class="slide active">
+                <div class="slide-bg" style="background-image: url('images/hero-background.jpg')"></div>
+            </div>
+            <div class="slide">
+                <div class="slide-bg" style="background-image: url('images/6.jpg')"></div>
+            </div>
+            
+            <div class="slide">
+                <div class="slide-bg" style="background-image: url('images/13.jpg')"></div>
+            </div>
+             <div class="slide">
+                <div class="slide-bg" style="background-image: url('images/hero-background.jpg')"></div>
+            </div>
+             <div class="slide">
+                <div class="slide-bg" style="background-image: url('images/2.jpg')"></div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Your perfect campsite is just a step away from the road.</h1>
+                <!-- <p>Immerse yourself in elegance and comfort at our world-class hotel resort</p> -->
+                <button class="cta-button" onclick="showBookingForm()">Book Your Stay</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About  Crystal Peak Camp</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>About</h3>
+                    <p>Crystal Peak Camp is located close to Chopta Road, making it easy to reach by car or bike. Restaurants, shops, and even a hospital are nearby for your convenience. It’s the perfect spot for a comfortable and worry-free stay.</p>
+                    <p>We provide everything guests need, from cozy tents to basic essentials, all at affordable prices. Our camp is well-maintained and in a safe area. You can enjoy your trip without having to worry about comfort or safety. Surrounded by nature, our camp offers stunning views of the mountains and fresh greenery.</p>
+                    <a href="https://maps.app.goo.gl/NWs4Gfy7FzzXPyFB7?g_st=ac" target="_blank">
+  View Location on Google Maps</a>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-star"></i>
+                            <span>Blakets provided</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-toilet"></i>
+                            <span>Washroom </span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-burger"></i>
+                            <span>Restaurants nearby</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-car"></i>
+                            <span>Parking nearby</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-water"></i>
+                            <span>24/7 water</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder" style="background-image: url('images/hero-background.jpg')"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section id="rooms" class="rooms">
+        <div class="container">
+            <div class="section-header">
+                <h2>Packages</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="rooms-grid">
+                <div class="room-card">
+                    <div class="room-image" style="background-image: url('images/location-map.jpg')"></div>
+                    <div class="room-info">
+                        <h3>Single Bed</h3>
+                        <p>Three Cozy Beds  </p>
+                        <div class="room-features">
+                            <span><i class="fas fa-bed"></i> King Bed</span>
+                            <span><i class="fas fa-users"></i> 1 Guests</span>
+                            
+                        </div>
+                        <div class="room-price">₹2999 <span>/night</span></div>
+                        <button class="room-book-btn" onclick="showBookingForm('Single Bed')">Book Now</button>
+                    </div>
+                </div>
+                
+                <div class="room-card">
+                    <div class="room-image" style="background-image: url('images/hotel-exterior.jpg')"></div>
+                    <div class="room-info">
+                        <h3>Full Tent</h3>
+                        <p>One bed</p>
+                        <div class="room-features">
+                            <span><i class="fas fa-bed"></i> King Bed</span>
+                            <span><i class="fas fa-users"></i> 3 Guests</span>
+                            
+                        </div>
+                        <div class="room-price">₹999 <span>/night</span></div>
+                        <button class="room-book-btn" onclick="showBookingForm('Full Tent')">Book Now</button>
+                    </div>
+                </div>
+                
+                <div class="room-card">
+                    <div class="room-image" style="background-image: url('images/lobby.jpg')"></div>
+                    <div class="room-info">
+                        <h3>Couple </h3>
+                        <p>2 Beds</p>
+                        <div class="room-features">
+                            <span><i class="fas fa-bed"></i> King Bed</span>
+                            <span><i class="fas fa-users"></i> 2 Guests</span>
+                            
+                        </div>
+                        <div class="room-price">₹1999 <span>/night</span></div>
+                        <button class="room-book-btn" onclick="showBookingForm('Couple')">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Gallery</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" style="background-image: url('images/hotel-exterior.jpg')"></div>
+                <div class="gallery-item" style="background-image: url('images/presidential-suite.jpg')"></div>
+                
+                <div class="gallery-item" style="background-image: url('images/13.jpg')"></div>
+                <div class="gallery-item" style="background-image: url('images/12.jpg')"></div>
+                <div class="gallery-item" style="background-image: url('images/4.jpg')"></div>
+                <div class="gallery-item" style="background-image: url('images/10.jpg')"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section class="amenities">
+        <div class="container">
+            <div class="section-header">
+                <h2>Facilities</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="amenities-grid">
+                <div class="amenity-card">
+                    <i class="fas fa-road"></i>
+                    <h3>Road Side</h3>
+                    <p>Convenient location, a quick stroll from roadside.</p>
+                </div>
+                <div class="amenity-card">
+                    <i class="fas fa-water"></i>
+                    <h3>24/7 Water</h3>
+                    <p>24/7 access to clean and safe water.</p>
+                </div>
+                <div class="amenity-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Restaurants nearby</h3>
+                    <p>Tasty bites just steps away from your tent.</p>
+                </div>
+                <div class="amenity-card">
+                    <i class="fas fa-chart-area"></i>
+                    <h3>Safe Zone</h3>
+                    <p>Located in a safe and secure area.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="location">
+        <div class="container">
+            <div class="section-header">
+                <h2>Prime Location</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="location-content">
+                <div class="location-info">
+                    <h3>Perfectly Positioned</h3>
+                    <p>Crystal Peak Camp is just a short walk from Chopta Road, making it easily accessible by car or bike. You’ll find restaurants, shops, and even a hospital close by for added convenience. It’s the ideal spot for a safe, comfortable, and hassle-free camping experience.</p>
+                    <a href="https://maps.app.goo.gl/NWs4Gfy7FzzXPyFB7?g_st=ac" target="_blank">
+  View Location on Google Maps</a>
+                    <div class="location-features">
+                        <div class="location-feature">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Chopta Road</strong>
+                                <p>2 minutes from main road</p>
+                            </div>
+                        </div>
+                        <div class="location-feature">
+                            <i class="fas fa-car"></i>
+                            <div>
+                                <strong>Ukhimath</strong>
+                                <p>1 hour drive</p>
+                            </div>
+                        </div>
+                        <div class="location-feature">
+                            <i class="fas fa-walking"></i>
+                            <div>
+                                <strong>Tungnath</strong>
+                                <p>5 hour trek</p>
+                            </div>
+                        </div>
+                        <div class="location-feature">
+                            <i class="fas fa-walking"></i>
+                            <div>
+                                <strong>Chandrashila</strong>
+                                <p>6 hour trek</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-map">
+                    <div class="map-placeholder" style="background-image: url('images/hotel-exterior.jpg')"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Guests Say</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial active">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The nights here were magical, and the stay was super comfortable. Loved every moment. Definitely worth trying"</p>
+                        <div class="testimonial-author">
+                            <strong>Bibhanshu Bhatt</strong>
+                            <span>Business Executive</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <a href="https://maps.app.goo.gl/NWs4Gfy7FzzXPyFB7?g_st=ac" target="_blank">
+  Address
+</a>
+
+                            <p>Near Chopta Road<br>Uttarakhand - 246453</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Phone</strong>
+                            <p>+91 94113 85974</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong>
+                            <p>crystalpeakchopta@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <strong>WhatsApp</strong>
+                            <p>+91 94113 85974</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-cta">
+                    <h3>Ready to Experience ?</h3>
+                    <p>Book your unforgettable stay with us today</p>
+                    <button class="cta-button" onclick="showBookingForm()">Book Now via WhatsApp</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Crystal Peak Camp</h3>
+                    <p>Breathe in the fresh air, live in the moment.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/tusharmaithani/?hl=en"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#rooms">Rooms</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Room Service</a></li>
+                        <li><a href="#">Tent House Booking</a></li>
+                        <li><a href="#">Trip Planing</a></li>
+                        <li><a href="#">Car Booking</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Crystal Peak Camp , Chopta</p>
+                    <a href="https://maps.app.goo.gl/NWs4Gfy7FzzXPyFB7?g_st=ac" target="_blank">
+  View Location on Google Maps</a>
+                    <p><i class="fas fa-phone"></i> +91 94113 85974</p>
+                    <p><i class="fas fa-envelope"></i> crystalpeakchopta@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Crystal Peak Camp. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Book Your Luxury Stay</h2>
+            <form id="bookingForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="checkIn">Check-in Date *</label>
+                        <input type="date" id="checkIn" name="checkIn" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkOut">Check-out Date *</label>
+                        <input type="date" id="checkOut" name="checkOut" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="roomType">Room Type *</label>
+                        <select id="roomType" name="roomType" required>
+                            <option value="">Select Room Type</option>
+                            <option value="Single Bed">Single Bed - ₹999/night</option>
+                            <option value="Full Tent">Full tent - ₹2999/night</option>
+                            <option value="Couple">Couple - ₹1999/night</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="numberOfPersons">Number of Persons *</label>
+                        <select id="numberOfPersons" name="numberOfPersons" required>
+                            <option value="1">1 </option>
+                            <option value="2">2 </option>
+                            <option value="3">3 </option>
+                            <option value="4">4+ </option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="adults">Adults *</label>
+                        <select id="adults" name="adults" required>
+                            <option value="1">1 Adult</option>
+                            <option value="2">2 Adults</option>
+                            <option value="3">3 Adults</option>
+                            <option value="4">4+ Adults</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="children">Children</label>
+                        <select id="children" name="children">
+                            <option value="0">0 Children</option>
+                            <option value="1">1 Child</option>
+                            <option value="2">2 Children</option>
+                            <option value="3">3+ Children</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="specialRequests">Special Requests</label>
+                    <textarea id="specialRequests" name="specialRequests" rows="3" placeholder="Any special requirements or requests..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-button">
+                    <i class="fab fa-whatsapp"></i>
+                    Book via WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
